@@ -37,7 +37,9 @@ schedule>=1.2.0  # Lighter alternative to APScheduler
 
 # Web Scraping
 beautifulsoup4>=4.12.0
-lxml>=4.9.0
+# lxml>=4.9.0  # Optional - requires libxml2-dev libxslt-dev
+# Install system deps first: pkg install libxml2 libxslt
+# Then: pip install lxml
 
 # Optional: Selenium (if needed)
 # selenium>=4.15.0

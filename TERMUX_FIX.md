@@ -38,7 +38,7 @@ pip install -r requirements-termux.txt  ✅
 pkg update && pkg upgrade -y
 
 # 2. Install system dependencies
-pkg install -y python git android-tools tesseract
+pkg install -y python git android-tools tesseract libxml2 libxslt
 
 # 3. Clone repository
 git clone https://github.com/taranglilhare/moltmobo.git
