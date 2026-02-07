@@ -2,17 +2,18 @@
 
 **The Real Autonomous Agent for Your Device.**
 
-unlike basic assistants, MoltMobo uses ADB to **actually control your device**. It sees the screen, understands your intent, and executes actions like a human.
+Unlike basic assistants, MoltMobo uses ADB to **actually control your device**. It sees the screen, understands your intent, and executes actions like a human.
+
+**[📘 READ THE COMPLETE USER GUIDE](USER_GUIDE.md)** for detailed instructions and command examples.
 
 ---
 
-## 🚀 Key Features (Powerful)
+## 🚀 Key Features
 
 ### 1. **Full Device Control** 🎮
 - Tap, swipe, text input on ANY app
 - Launch/close apps
-- Manage system settings (WiFi, DND, etc.)
-- Organize files
+- Manage system settings (WiFi, DND, brightness)
 
 ### 2. **Task Automation Engine** 🤖
 - "Send WhatsApp to Mom saying I'm late" -> **Done**
@@ -21,54 +22,38 @@ unlike basic assistants, MoltMobo uses ADB to **actually control your device**. 
 
 ### 3. **Smart Intelligence** 🧠
 - **Intent Parser**: Understands natural language
-- **Screen Analyzer**: Sees UI elements (Buttons, Text)
-- **Context Manager**: Remembers what you're doing
+- **Screen Analyzer**: Sees UI elements (OCR + Vision)
 - **Voice Assistant**: Speaks and listens
+
+### 4. **Revolutionary "Sci-Fi" Features** 🔮
+*Implemented as of v2.0*
+- **Predictive Mood Enhancer**: Reacts to your emotions
+- **Decentralized Privacy Vault**: Encrypts sensitive data locally
+- **Second Brain**: Searchable memory of all interactions
+- **Quantum Decision Sim**: Helps you make life choices
+- **Green Eco-Tracker**: Monitors your carbon footprint
+- **...and 14 more!** (See User Guide)
 
 ---
 
 ## 🛠️ Quick Start
 
 ```bash
-# 1. Start the Agent
-python real_agent.py
-
-# 2. Interactive Mode
+# 1. Start Interactive Mode
 python real_agent.py -i
 
-# 3. Voice Mode
+# 2. Start Voice Mode
 python real_agent.py --voice
 ```
-
----
-
-## 🎮 Command Examples
-
-### Messaging
-- "Open WhatsApp and send message to John: Hello"
-- "Msg Mom: I'll be there in 5 mins"
-
-### System
-- "Turn on WiFi"
-- "Set brightness to 50"
-- "Take a screenshot"
-- "Go home"
-
-### Web
-- "Search for best pizza near me"
-- "Open YouTube"
-
-### Files
-- "Download latest photos"
 
 ---
 
 ## 🏗️ Architecture
 
 - **Core**: `adb_controller`, `task_executor`, `screen_analyzer`
-- **Actions**: `messenger`, `file_manager`, `web_search`, `settings_control`
-- **Intelligence**: `intent_parser`, `context_manager`
-- **Voice**: `voice_assistant`
+- **Actions**: `messenger`, `file_manager`, `web_search`...
+- **Intelligence**: `intent_parser`, `learning_tutor`, `mood_analyzer`...
+- **Security**: `privacy_vault`, `ethical_auditor`...
 
 ---
 
