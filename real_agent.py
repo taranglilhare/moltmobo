@@ -43,11 +43,62 @@ def main():
     analyzer = ScreenAnalyzer(adb)
     executor = TaskExecutor(adb, analyzer)
     
+    # --- REVOLUTIONARY MODULES INIT ---
+    print(Fore.MAGENTA + "🔮 Initializing Sci-Fi Features..." + Style.RESET_ALL)
+    
+    # 1. Mood Enhancer
+    from intelligence.mood_analyzer import MoodAnalyzer
+    mood_ai = MoodAnalyzer()
+    
+    # 2. Privacy Vault
+    from security.privacy_vault import PrivacyVault
+    vault = PrivacyVault()
+    
+    # 3. Learning Tutor
+    from intelligence.learning_tutor import LearningTutor
+    tutor = LearningTutor()
+    
+    # 4. Second Brain
+    from intelligence.memory_augmenter import MemoryAugmenter
+    brain = MemoryAugmenter()
+    
+    # 5. Health & Eco
+    from health.bio_sync import BioSyncOptimizer
+    bio = BioSyncOptimizer()
+    from core.eco_tracker import EcoTracker
+    eco = EcoTracker()
+    
+    # 6. UI Morpher
+    from core.ui_morpher import AdaptiveUIMorpher
+    morpher = AdaptiveUIMorpher(adb)
+    
     print(Fore.GREEN + "✓ System Online. Ready for tasks." + Style.RESET_ALL)
 
     # 2. Handle Task
     if args.task:
         task_str = " ".join(args.task)
+        
+        # Analyze mood & Track Eco Impact
+        mood_ai.analyze_text_input(task_str)
+        eco.track_activity("screen_time", 1) # Mock duration
+        
+        # Update Bio Metics
+        bio.update_metrics(screen_on=True)
+        
+        # Store in Second Brain
+        brain.capture_moment(f"User Command: {task_str}", ["command", "history"])
+        
+        # Check for Dream Journal context
+        if "dream" in task_str.lower():
+            insight = from intelligence.dream_journal import DreamJournal().log_dream(task_str)
+            print(f"🌙 Dream Analysis: {insight}")
+        
+        # Verify Privacy for sensitive data
+        if "password" in task_str.lower() or "bank" in task_str.lower():
+            logger.warning("🔒 Sensitive data detected! Storing in decentralized vault.")
+            vault.store_data("sensitive_cmd", {"cmd": task_str})
+            print("✓ Data secured in blockchain vault.")
+        
         executor.execute_task(task_str)
     
     # 3. Interactive Mode
@@ -60,7 +111,15 @@ def main():
                     break
                 if not user_input.strip():
                     continue
-                    
+                
+                # --- Real-time Sci-Fi Analysis ---
+                mood_ai.analyze_text_input(user_input)
+                brain.capture_moment(user_input, ["interaction"])
+                
+                # Check for Tutor context (Mock)
+                if "math" in user_input or "learn" in user_input:
+                     tutor.generate_micro_lesson("Concept detected")
+
                 executor.execute_task(user_input)
                 
             except KeyboardInterrupt:
