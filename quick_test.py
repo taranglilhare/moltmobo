@@ -54,7 +54,7 @@ print("3. Testing Gemini API...")
 try:
     import google.generativeai as genai
     genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-1.5-flash')  # Updated model
     
     response = model.generate_content("Say hello in 3 words")
     print(f"   ✅ Gemini: {response.text}")
