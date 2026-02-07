@@ -82,7 +82,26 @@ def main():
     from creative.fusion_generator import CreativeFusion
     fusion = CreativeFusion()
     
+    # 8. God Mode Features
+    from quantum.decision_sim import QuantumDecisionSim
+    quantum = QuantumDecisionSim()
+    from security.ethical_auditor import EthicalAuditor
+    auditor = EthicalAuditor(adb)
+    from core.crisis_oracle import CrisisOracle
+    oracle = CrisisOracle()
+    from core.energy_harvester import EnergyHarvester
+    harvester = EnergyHarvester(adb)
+    from core.evolution_engine import EvolutionEngine
+    evolver = EvolutionEngine()
+    
     print(Fore.GREEN + "✓ System Online. Ready for tasks." + Style.RESET_ALL)
+    
+    # Background Checks
+    status = oracle.check_global_status()
+    if status == "RED":
+        print(Fore.RED + "🚨 EMERGENCY PROTOCOL ACTIVE" + Style.RESET_ALL)
+    
+    harvester.simulate_harvesting()
 
     # 2. Handle Task
     if args.task:
@@ -98,6 +117,16 @@ def main():
         # Store in Second Brain
         brain.capture_moment(f"User Command: {task_str}", ["command", "history"])
         
+        # Quantum Decision Check
+        if "decide" in task_str.lower() or "choice" in task_str.lower():
+             q_res = quantum.simulate_decision("Option A", "Option B") # Mock extraction
+             print(q_res)
+
+        # Audit Check
+        if "audit" in task_str.lower():
+             report = auditor.audit_app("com.example.app") # Mock package
+             print(report)
+
         # Creative Fusion Check
         if "mix" in task_str.lower() or "fuse" in task_str.lower():
             # simple parsing for demo
