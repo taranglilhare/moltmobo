@@ -1,0 +1,43 @@
+# MoltMobo Requirements - Termux Compatible
+
+# Core LLM APIs (lightweight)
+anthropic>=0.18.0
+groq>=0.4.0
+google-generativeai>=0.3.0
+huggingface-hub>=0.19.0
+
+# Essential utilities
+python-dotenv>=1.0.0
+pyyaml>=6.0
+requests>=2.31.0
+colorlog>=6.8.0
+
+# Lightweight alternatives for Termux
+# Using simple JSON storage instead of ChromaDB
+# Using basic scheduler instead of APScheduler
+
+# Testing
+pytest>=7.4.0
+
+# Revolutionary Features - Lightweight versions
+# Vision AI (optional - large download)
+# transformers>=4.35.0
+# torch>=2.0.0
+pillow>=10.0.0
+
+# Voice Control (optional)
+# openai-whisper>=20231117
+# soundfile>=0.12.1
+
+# OCR (lightweight)
+pytesseract>=0.3.10
+
+# Task Scheduler (lightweight)
+schedule>=1.2.0  # Lighter alternative to APScheduler
+
+# Web Scraping
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# Optional: Selenium (if needed)
+# selenium>=4.15.0
