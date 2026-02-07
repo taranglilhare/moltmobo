@@ -90,7 +90,8 @@ def main():
         
         # Check for Dream Journal context
         if "dream" in task_str.lower():
-            insight = from intelligence.dream_journal import DreamJournal().log_dream(task_str)
+            from intelligence.dream_journal import DreamJournal
+            insight = DreamJournal().log_dream(task_str)
             print(f"🌙 Dream Analysis: {insight}")
         
         # Verify Privacy for sensitive data
