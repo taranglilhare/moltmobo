@@ -1,0 +1,81 @@
+# App Whitelist Configuration
+# Only apps listed here can be controlled by the agent
+
+allowed_apps:
+  # Browsers
+  - com.android.chrome
+  - org.mozilla.firefox
+  - com.brave.browser
+  
+  # Social Media (with restrictions)
+  - com.whatsapp:
+      allow_read: true
+      allow_send: false  # Prevent auto-sending messages
+  - com.instagram.android:
+      allow_read: true
+      allow_post: false
+  
+  # Productivity
+  - com.google.android.apps.docs
+  - com.microsoft.office.word
+  - com.todoist
+  
+  # Media
+  - com.spotify.music
+  - com.google.android.youtube
+  
+  # Utilities
+  - com.google.android.apps.maps
+  - com.android.settings
+
+# Explicitly forbidden apps (will trigger alert if accessed)
+forbidden_apps:
+  # Banking & Finance
+  - "com.*.bank.*"
+  - "com.paypal.*"
+  - "com.*.wallet.*"
+  - "com.*.payment.*"
+  
+  # System Critical
+  - "com.android.systemui"
+  - "com.android.phone"
+  
+  # Security Apps
+  - "com.*.authenticator.*"
+  - "com.*.2fa.*"
+
+# Stealth Mode Configuration
+stealth_mode:
+  # Battery threshold to activate stealth mode
+  battery_threshold: 15
+  
+  # Critical tasks allowed in stealth mode
+  allowed_critical_tasks:
+    - "sms_alerts"
+    - "emergency_calls"
+    - "battery_notifications"
+  
+  # Disable these in stealth mode
+  disabled_in_stealth:
+    - "screen_scraping"
+    - "vision_analysis"
+    - "cloud_api_calls"
+
+# App-specific rules
+app_rules:
+  # Example: WhatsApp - only read, no send
+  com.whatsapp:
+    max_actions_per_hour: 10
+    require_confirmation: true
+    allowed_actions:
+      - "read_messages"
+      - "open_chat"
+    forbidden_actions:
+      - "send_message"
+      - "delete_message"
+  
+  # Example: Chrome - full access
+  com.android.chrome:
+    max_actions_per_hour: 100
+    require_confirmation: false
+    allowed_actions: "all"

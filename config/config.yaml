@@ -1,0 +1,85 @@
+# MoltMobo Configuration
+
+# LLM Settings
+llm:
+  primary:
+    provider: "anthropic"
+    model: "claude-3-5-sonnet-20241022"
+    api_key: "${ANTHROPIC_API_KEY}"  # Set in .env file
+    max_tokens: 4096
+    temperature: 0.7
+  
+  fallback:
+    provider: "ollama"
+    model: "llama3.2"
+    endpoint: "http://localhost:11434"
+    enabled: true
+
+# Privacy Settings
+privacy:
+  # Route to local LLM when sensitive data detected
+  local_first_mode: true
+  
+  # Sensitivity levels: low, medium, high
+  sensitivity_level: "high"
+  
+  # Keywords that trigger local processing
+  sensitive_keywords:
+    - "password"
+    - "credit card"
+    - "bank"
+    - "otp"
+    - "pin"
+    - "private"
+  
+  # Log privacy decisions
+  audit_log: true
+
+# Memory Settings
+memory:
+  database: "chromadb"
+  persist_directory: "./data/memory"
+  collection_name: "moltmobo_memory"
+  max_history: 100
+  embedding_model: "all-MiniLM-L6-v2"
+
+# ADB Settings
+adb:
+  connection_type: "wireless"  # wireless or usb
+  device_ip: "localhost"
+  port: 5555
+  reconnect_attempts: 3
+  command_timeout: 10
+
+# Performance Settings
+performance:
+  # Low battery stealth mode
+  battery_threshold: 15
+  
+  # Max concurrent operations
+  max_concurrent_tasks: 3
+  
+  # Response timeout (seconds)
+  response_timeout: 30
+  
+  # Screenshot quality (1-100)
+  screenshot_quality: 70
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "./logs/moltmobo.log"
+  max_size_mb: 10
+  backup_count: 5
+  redact_sensitive: true
+
+# Safety Settings
+safety:
+  # Require confirmation for destructive actions
+  confirm_destructive: true
+  
+  # Max actions per minute (rate limiting)
+  max_actions_per_minute: 30
+  
+  # Emergency stop keyword
+  emergency_stop_keyword: "STOP_AGENT"

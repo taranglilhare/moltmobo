@@ -1,0 +1,25 @@
+# Core Dependencies
+anthropic>=0.18.0
+langchain>=0.1.0
+langgraph>=0.0.20
+
+# Vector Database for Memory
+chromadb>=0.4.22
+
+# UI Parsing & Vision
+lxml>=5.1.0
+Pillow>=10.2.0
+
+# Utilities
+pyyaml>=6.0.1
+python-dotenv>=1.0.0
+requests>=2.31.0
+
+# Logging & Monitoring
+colorlog>=6.8.0
+
+# Testing
+pytest>=7.4.0
+
+# Optional: Local LLM Support
+# ollama-python>=0.1.0  # Uncomment if using local LLM
