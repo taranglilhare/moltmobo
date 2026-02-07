@@ -72,6 +72,16 @@ def main():
     from core.ui_morpher import AdaptiveUIMorpher
     morpher = AdaptiveUIMorpher(adb)
     
+    # 7. Social & Creative
+    from social.translator import MultiversalTranslator
+    translator = MultiversalTranslator()
+    from social.weaver import SocialWeaver
+    weaver = SocialWeaver()
+    from social.empathy_trainer import EmpathyTrainer
+    empathy = EmpathyTrainer()
+    from creative.fusion_generator import CreativeFusion
+    fusion = CreativeFusion()
+    
     print(Fore.GREEN + "✓ System Online. Ready for tasks." + Style.RESET_ALL)
 
     # 2. Handle Task
@@ -88,6 +98,20 @@ def main():
         # Store in Second Brain
         brain.capture_moment(f"User Command: {task_str}", ["command", "history"])
         
+        # Creative Fusion Check
+        if "mix" in task_str.lower() or "fuse" in task_str.lower():
+            # simple parsing for demo
+            parts = task_str.split("and")
+            if len(parts) >= 2:
+                res = fusion.generate_fusion(parts[0], parts[1])
+                print(f"🎨 Creative Fusion: {res}")
+                
+        # Translator Check
+        if "translate" in task_str.lower():
+             # Mock target language detection
+             res = translator.translate_with_nuance(task_str, "Spanish") 
+             print(f"🌐 Translation: {res}")
+
         # Check for Dream Journal context
         if "dream" in task_str.lower():
             from intelligence.dream_journal import DreamJournal
