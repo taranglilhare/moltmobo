@@ -1,179 +1,187 @@
-# MoltMobo - Sovereign AI Agent for Mobile
+# MoltMobo - Revolutionary Free Edition
 
-A privacy-focused, autonomous AI agent for Android devices that runs through Termux. MoltMobo can control apps and hardware with intelligent decision-making while respecting your privacy.
+**100% Free AI Agent** using only open-source resources!
 
-## 🌟 Features
+## 🚀 New Revolutionary Features
 
-- **🤖 Autonomous Control**: Controls Android apps via ADB with natural language commands
-- **🔒 Privacy-First**: Routes sensitive data to local LLM instead of cloud APIs
-- **🛡️ Security**: Whitelist-based app access with policy enforcement
-- **🔋 Smart Power Management**: Stealth mode activates when battery is low
-- **🧠 Memory**: Remembers past interactions and learns from them
-- **⚡ Dual LLM**: Uses Claude API for general tasks, Ollama for sensitive data
+### 🎯 Vision AI
+- **Moondream** - Understand screens visually
+- **BLIP-2** - Image captioning
+- No XML parsing needed!
 
-## 📋 Requirements
+### 🎤 Voice Control  
+- **Whisper** - Speech-to-text (90+ languages)
+- **Piper TTS** - Text-to-speech
+- Completely offline!
 
-- Android device with Developer Options enabled
-- Termux app installed
-- Minimum 2GB RAM (4GB recommended for local LLM)
-- ~500MB storage (+ 4GB if using local LLM)
+### 📝 OCR
+- **Tesseract** - Text extraction
+- **EasyOCR** - 80+ languages
+- Auto-detect OTP codes!
 
-## 🚀 Quick Start
+### ⏰ Task Scheduler
+- Cron-like automation
+- Time-based triggers
+- Event-driven actions
 
-### 1. Clone or Download
+### 🔌 Plugin System
+- Community plugins
+- Custom actions
+- Extensible architecture
+
+### 🌐 Web Scraping
+- BeautifulSoup - Data extraction
+- Selenium - Browser automation
+- Free API integrations
+
+## 📦 Installation
 
 ```bash
-cd ~/
-git clone <your-repo-url> moltmobo
+# Clone repository
+git clone https://github.com/taranglilhare/moltmobo.git
 cd moltmobo
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Download models (optional, auto-downloads on first use)
+python -c "import whisper; whisper.load_model('tiny')"
 ```
 
-### 2. Run Setup
+## 🎮 Usage
 
+### Voice Commands
 ```bash
-chmod +x setup.sh
-./setup.sh
+python moltmobo_agent.py --voice
 ```
 
-### 3. Configure
-
-Edit `.env` file and add your API key:
-
-```bash
-nano .env
+Then speak:
+```
+🎤 "Open Chrome and search for weather"
+🎤 "Take a screenshot and extract text"
+🎤 "Schedule daily backup at 11 PM"
 ```
 
-Add:
-```
-ANTHROPIC_API_KEY=your_api_key_here
-```
+### Vision Mode
+```python
+from vision_ai import VisionAI
 
-### 4. Enable ADB
-
-**Option A: Wireless Debugging (Android 11+)**
-1. Settings → Developer Options → Wireless Debugging
-2. Note the IP and port
-3. Run: `adb connect <IP>:<PORT>`
-
-**Option B: LADB App**
-1. Install LADB from Play Store
-2. Follow in-app instructions
-
-### 5. Run Agent
-
-```bash
-python moltmobo_agent.py
+vision = VisionAI()
+analysis = vision.analyze_screenshot("/sdcard/screenshot.png")
+print(analysis)
 ```
 
-## 💬 Usage Examples
+### OCR
+```python
+from ocr_engine import OCREngine
 
-```
-💬 You: Open Chrome and search for weather in New York
-
-💬 You: Send a WhatsApp message to John saying "Hello"
-
-💬 You: Take a screenshot and save it
-
-💬 You: Open Spotify and play my liked songs
+ocr = OCREngine()
+text = ocr.extract_text("/sdcard/screenshot.png")
+otp = ocr.extract_otp("/sdcard/otp_screenshot.png")
 ```
 
-## 🔧 Configuration
-
-### App Whitelist
-
-Edit `config/whitelist.yaml` to control which apps the agent can access:
-
+### Task Automation
 ```yaml
-allowed_apps:
-  - com.android.chrome
-  - com.spotify.music
-
-forbidden_apps:
-  - "com.*.bank.*"
-  - "com.paypal.*"
+# config/tasks.yaml
+tasks:
+  - name: morning_routine
+    schedule: "8:00 AM daily"
+    actions:
+      - check_weather
+      - read_news
 ```
 
-### Privacy Settings
+### Create Plugin
+```python
+# plugins/my_plugin.py
+from plugin_system import Plugin
 
-Edit `config/config.yaml` to adjust privacy sensitivity:
-
-```yaml
-privacy:
-  local_first_mode: true
-  sensitivity_level: "high"  # low, medium, high
+class MyPlugin(Plugin):
+    name = "my_plugin"
+    version = "1.0.0"
+    
+    def on_command(self, command):
+        if "hello" in command:
+            return {"message": "Hello from plugin!"}
 ```
 
-## 📁 Project Structure
+## 🆓 Free Resources Used
 
+### Models (HuggingFace)
+- Moondream (1.6GB) - Vision understanding
+- Whisper-tiny (75MB) - Speech recognition
+- Phi-3-mini (2.3GB) - Local LLM
+
+### APIs (Free Tier)
+- wttr.in - Weather (no API key!)
+- NewsAPI - News headlines
+- JokeAPI - Random jokes
+
+### Libraries (Open Source)
+- Transformers - ML models
+- Tesseract - OCR
+- BeautifulSoup - Web scraping
+- APScheduler - Task scheduling
+
+## 💡 Example Use Cases
+
+### 1. Smart Morning Routine
 ```
-moltmobo/
-├── moltmobo_agent.py      # Main orchestrator
-├── observer.py            # Screen observation
-├── executor.py            # Action execution
-├── llm_handler.py         # LLM integration
-├── privacy_firewall.py    # Privacy routing
-├── memory_manager.py      # Vector memory
-├── policy_engine.py       # Security policies
-├── adb_connector.py       # ADB management
-├── config/
-│   ├── config.yaml       # Main configuration
-│   └── whitelist.yaml    # App permissions
-└── utils/
-    ├── logger.py         # Privacy-aware logging
-    └── ui_parser.py      # UI parsing
+8:00 AM: Check weather
+8:05 AM: Read news headlines
+8:10 AM: Show calendar events
 ```
 
-## 🔐 Security Features
+### 2. Auto OTP Extraction
+```
+SMS arrives → Screenshot → OCR → Extract OTP → Auto-fill
+```
 
-- **Whitelist System**: Only approved apps can be controlled
-- **Privacy Firewall**: Detects sensitive data and routes to local LLM
-- **Stealth Mode**: Limits operations when battery < 15%
-- **Action Logging**: Complete audit trail of all actions
-- **Rate Limiting**: Prevents excessive actions
+### 3. Price Monitoring
+```
+Check Amazon price daily → If price drops → Notify user
+```
 
-## 🧠 How It Works
+### 4. Voice Assistant
+```
+"What's on my screen?" → Vision AI analyzes → Speaks response
+```
 
-1. **Observe**: Captures current screen state via `uiautomator dump`
-2. **Think**: Sends context to LLM (Claude or local Ollama)
-3. **Plan**: LLM generates sequence of actions
-4. **Execute**: Performs actions via ADB with policy checks
-5. **Remember**: Stores interaction in vector database
+## 🌟 Why This is Revolutionary
+
+✅ **100% Free** - No API costs, no subscriptions  
+✅ **Privacy-First** - Everything runs locally  
+✅ **Powerful** - Vision + Voice + Automation  
+✅ **Extensible** - Plugin system for community  
+✅ **Offline** - Works without internet  
+
+## 📊 Resource Usage
+
+| Feature | Storage | RAM | Internet |
+|---------|---------|-----|----------|
+| Base Agent | 100MB | 500MB | Optional |
+| + Voice (Whisper) | +75MB | +200MB | No |
+| + Vision (Moondream) | +1.6GB | +1GB | No |
+| + OCR (Tesseract) | +10MB | +100MB | No |
+| **Total** | **~2GB** | **~2GB** | **Optional** |
+
+## 🔗 Links
+
+- **Repository**: https://github.com/taranglilhare/moltmobo
+- **Documentation**: [docs/](docs/)
+- **Plugins**: [plugins/](plugins/)
+- **Examples**: [examples/](examples/)
 
 ## 🤝 Contributing
 
-Contributions welcome! Please read CONTRIBUTING.md first.
+Create plugins, share automation scripts, improve models!
 
-## 📄 License
+See [CONTRIBUTING.md](CONTRIBUTING.md)
 
-MIT License - see LICENSE file
+## 📜 License
 
-## ⚠️ Disclaimer
+MIT License - Free forever!
 
-This tool gives significant control over your device. Use responsibly and only on devices you own. The developers are not responsible for any misuse.
+---
 
-## 🆘 Troubleshooting
-
-**ADB not connecting?**
-- Ensure Wireless Debugging is enabled
-- Check firewall settings
-- Try USB debugging instead
-
-**LLM not responding?**
-- Check API key in `.env`
-- Verify internet connection
-- Check logs in `logs/moltmobo.log`
-
-**Actions failing?**
-- Check app is in whitelist
-- Verify ADB permissions
-- Check battery level (stealth mode?)
-
-## 📚 Documentation
-
-- [Installation Guide](docs/INSTALLATION.md)
-- [Usage Guide](docs/USAGE.md)
-- [API Reference](docs/API.md)
-
-## 🙏 Acknowledgments
-
-Inspired by OpenClawd and the Computer Use capabilities of Claude 3.5 Sonnet.
+**Show the world what's possible with FREE AI!** 🚀

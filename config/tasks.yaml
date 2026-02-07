@@ -1,0 +1,56 @@
+# Task Automation Configuration
+
+tasks:
+  # Morning Routine
+  - name: morning_routine
+    description: Daily morning automation
+    schedule: "8:00 AM daily"
+    enabled: false
+    actions:
+      - type: check_weather
+        city: "Tokyo"
+      - type: read_news
+        category: "technology"
+      - type: check_calendar
+
+  # Photo Backup
+  - name: backup_photos
+    description: Weekly photo backup
+    schedule: "Sunday 11:00 PM"
+    enabled: false
+    actions:
+      - type: backup_photos
+        source: "/sdcard/DCIM/Camera"
+        destination: "cloud"
+
+  # Battery Saver
+  - name: battery_saver
+    description: Enable battery saver at low battery
+    schedule: "Every 30 minutes"
+    enabled: false
+    actions:
+      - type: check_battery
+      - type: enable_battery_saver
+        threshold: 20
+
+  # Auto Reply
+  - name: auto_reply_driving
+    description: Auto-reply when driving
+    schedule: "Every 5 minutes"
+    enabled: false
+    actions:
+      - type: detect_driving
+      - type: auto_reply_whatsapp
+        message: "I'm driving, will reply later"
+
+  # Price Monitor
+  - name: monitor_price
+    description: Monitor product price
+    schedule: "Every 6 hours"
+    enabled: false
+    actions:
+      - type: scrape_price
+        url: "https://example.com/product"
+        selector: ".price"
+      - type: notify_if_price_drop
+        threshold: 1000

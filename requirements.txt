@@ -21,5 +21,28 @@ colorlog>=6.8.0
 # Testing
 pytest>=7.4.0
 
+# Revolutionary Features - All FREE!
+# Vision AI
+transformers>=4.35.0
+torch>=2.0.0
+pillow>=10.0.0
+
+# Voice Control
+openai-whisper>=20231117
+soundfile>=0.12.1
+
+# OCR
+pytesseract>=0.3.10
+easyocr>=1.7.0  # Optional: multilingual OCR
+
+# Task Scheduler
+apscheduler>=3.10.0
+
+# Web Scraping
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+selenium>=4.15.0  # Optional: browser automation
+lxml>=4.9.0
+
 # Optional: Local LLM Support
 # ollama-python>=0.1.0  # Uncomment if using local LLM

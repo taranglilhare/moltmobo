@@ -83,3 +83,27 @@ safety:
   
   # Emergency stop keyword
   emergency_stop_keyword: "STOP_AGENT"
+
+# Revolutionary Features Configuration
+features:
+  # Vision AI - Visual screen understanding
+  vision_ai: false  # Set to true to enable (requires ~2GB storage)
+  vision_model: "vikhyatk/moondream2"  # or "Salesforce/blip2-opt-2.7b"
+  
+  # Voice Control - Speech recognition
+  voice_control: false  # Set to true to enable
+  whisper_model: "tiny"  # tiny, base, small, medium, large
+  
+  # OCR - Text extraction
+  ocr: true  # Enabled by default
+  ocr_languages: ["eng"]  # Add more: ["eng", "hin", "spa"]
+  
+  # Task Scheduler - Automation
+  task_scheduler: true  # Enabled by default
+  
+  # Plugin System - Extensibility
+  plugins: true  # Enabled by default
+  
+  # Web Scraping - Data extraction
+  web_scraping: false  # Set to true to enable
+
