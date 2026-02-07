@@ -44,5 +44,11 @@ requests>=2.31.0
 selenium>=4.15.0  # Optional: browser automation
 lxml>=4.9.0
 
+# Free LLM APIs
+groq>=0.4.0  # FREE & Fast
+google-generativeai>=0.3.0  # Google Gemini FREE
+huggingface-hub>=0.19.0  # HuggingFace FREE
+
 # Optional: Local LLM Support
 # ollama-python>=0.1.0  # Uncomment if using local LLM
+
