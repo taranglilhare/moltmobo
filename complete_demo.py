@@ -60,7 +60,7 @@ print("\n3. Google Gemini API:")
 try:
     import google.generativeai as genai
     genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-1.5-flash')  # Updated model name
     
     response = model.generate_content("What's the capital of India? Answer in one sentence.")
     print(f"   ✅ {response.text}")
